@@ -10,7 +10,12 @@ const UserAuthForm = ({ type }) => {
 
                 {
                     type != "sign-in" ?
-                    <InputBox />
+                    <InputBox
+                        name="fullname"
+                        type="text"
+                        placeholder="Full Name"
+                        icon="fi-rr-user"
+                    />
                     : ""
                 }
             </form>
