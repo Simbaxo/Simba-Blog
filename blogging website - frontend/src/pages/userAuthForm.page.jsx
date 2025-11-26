@@ -18,6 +18,20 @@ const UserAuthForm = ({ type }) => {
                     />
                     : ""
                 }
+
+                <InputBox
+                        name="email"
+                        type="email"
+                        placeholder="Email"
+                        icon="fi-rs-at"
+                    />
+
+                    <InputBox
+                        name="password"
+                        type="password"
+                        placeholder="Password"
+                        icon="fi-rr-key"
+                    />
             </form>
         </section>
     )
