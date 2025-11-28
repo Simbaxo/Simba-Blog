@@ -2,6 +2,7 @@ import express from 'express';
 import mongoose from 'mongoose';
 import 'dotenv/config';
 import bcrypt from 'bcrypt';
+import { nanoid } from 'nanoid';
 
 
 // Schemas
@@ -18,6 +19,17 @@ server.use(express.json());
 mongoose.connect(process.env.DB_LOCATION, {
     autoIndex: true
 })
+
+const generateUsername = async (email) => {
+    let username = email.split("@")[0];
+
+    let isUsernameNotUnique = await User.exists({ "personal_info.username": username }).then((result) => result);
+
+    isUsernameNotUnique ? username += nanoid().substring(0, 5) : "";
+
+    return username;
+}
+
 
 server.post("/signup", (req, res) => {
 
@@ -37,9 +49,9 @@ server.post("/signup", (req, res) => {
         return res.status(403).json({ "error": "Password should be 6 to 20 characters long and contain at least one numeric digit, one uppercase and one lowercase letter" });
     }
 
-    bcrypt.hash(password, 10, (err, hashed_password) => {
+    bcrypt.hash(password, 10, async (err, hashed_password) => {
 
-        let username = email.split("@")[0];
+        let username = await generateUsername(email);
 
         let user = new User({
             personal_info: { fullname, email, password: hashed_password, username }
