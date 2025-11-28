@@ -5,6 +5,9 @@ import 'dotenv/config';
 const server = express();
 let PORT = 3000;
 
+let emailRegex = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/; // regex for email
+let passwordRegex = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,20}$/; // regex for password
+
 server.use(express.json());
 
 mongoose.connect(process.env.DB_LOCATION, {
@@ -13,10 +16,24 @@ mongoose.connect(process.env.DB_LOCATION, {
 
 server.post("/signup", (req, res) => {
 
-    console.log(req.body);
+    let {fullname, email, password} = req.body;
 
-    res.json(req.body);
+    // validating the data from frontend
+    if(fullname.length < 3) {
+        return res.status(403).json({ "error": "Fullname must be at least 3 characters long" });
+    }
+    if(!email.length){
+        return res.status(403).json({ "error": "Email is required" });
+    }
+    if(!emailRegex.test(email)){
+        return res.status(403).json({ "error": "Email is not valid" });
+    }
+    if(!passwordRegex.test(password)){
+        return res.status(403).json({ "error": "Password should be 6 to 20 characters long and contain at least one numeric digit, one uppercase and one lowercase letter" });
+    }
 
+
+    return res.status(200).json({ "status": "Ok" });
 });
 
 server.listen(PORT, () => {
