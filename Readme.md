@@ -25,12 +25,12 @@ And much more.
 
 ### Build Steps
 
-- [ ] Navbar
+- [x] Navbar
 - [x] Setting up Routes
 - [x] User Auth Form (UI)
-- [x] Mars
-- [ ] Jupiter
-- [ ] Saturn
-- [ ] Uranus
-- [ ] Neptune
-- [ ] Comet Haley
+- [x] Page Animation
+- [x] Server Setup + User Auth. Form Routes
+- [ ] Connection Form UI to server
+- [ ] Store user in Sessions
+- [ ] User Navigation + Sign Out
+- [ ] Google Authentication
