@@ -22,3 +22,15 @@ This website features include -
 13. Also user can change login password from settings.
 14. Its mobile responsive with modern design + fade in animation on pages.
 And much more.
+
+### Build Steps
+
+- [ ] Navbar
+- [x] Setting up Routes
+- [x] User Auth Form (UI)
+- [x] Mars
+- [ ] Jupiter
+- [ ] Saturn
+- [ ] Uranus
+- [ ] Neptune
+- [ ] Comet Haley
