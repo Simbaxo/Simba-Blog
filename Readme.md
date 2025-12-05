@@ -2,10 +2,6 @@
 
 New Blog every Monday!
 
-Topics will vary!
- 
-![Thumbnail](https://c10.patreonusercontent.com/4/patreon-media/p/post/90122909/dd5363bd03fb4a6c8fcd5d15df98e6bf/eyJ3Ijo4MjB9/1.png?token-time=1697414400&token-hash=BZ-Mzp19WnBLcCFB8LmJFDw98mpnCRGcOCt_T615miY%3D)
-
 This website features include -
 1. Modern Blog Editor using Editor JS.
 2. Google Authentication for Users
